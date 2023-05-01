@@ -1,14 +1,14 @@
 package com.stevens.retrorxjava.network
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
+import io.reactivex.Single
 import retrofit2.http.*
 
 
 interface GameApi {
 
     @GET("/users")
-    fun getUsers(): Call<UsersResponse>
+    fun getUsers(): Single<UsersResponse>
 }
 
 data class UsersResponse(
