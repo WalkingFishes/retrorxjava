@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.stevens.retrorxjava.network.GameRepo
 import com.stevens.retrorxjava.network.GameRepositoryFactory
 import com.stevens.retrorxjava.network.User
+import io.reactivex.Completable
+import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -14,7 +16,8 @@ class GameViewModel (
     private val gameRepository: GameRepo = GameRepositoryFactory.gameRepository,
     private val scheduler: Scheduler = Schedulers.computation(),
     private var compositeDisposable: CompositeDisposable = CompositeDisposable(),
-    private val usersDataSubject: BehaviorSubject<UserData> = BehaviorSubject.create()
+    private val usersDataSubject: BehaviorSubject<UserData> = BehaviorSubject.create(),
+    val usersDataObservable: Observable<UserData> = usersDataSubject
 ) : ViewModel() {
 
     init {
@@ -35,6 +38,8 @@ class GameViewModel (
         )
 
     }
+
+    fun getUsers(): Completable = gameRepository.getUsers().subscribeOn(scheduler)
 
 }
 

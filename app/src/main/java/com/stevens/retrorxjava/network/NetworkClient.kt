@@ -22,7 +22,7 @@ object NetworkClient {
         .build()
 
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://127.0.0.1:8000/")
+        .baseUrl("http://10.0.2.2:8000/")
         .client(OK_HTTP_INSTANCE)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create(moshi))
