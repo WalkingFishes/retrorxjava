@@ -1,4 +1,4 @@
-package com.stevens.retrorxjava
+package com.stevens.retrorxjava.ux
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.stevens.retrorxjava.R
 import com.stevens.retrorxjava.databinding.FragmentSecondBinding
 
 /**
